@@ -23,7 +23,14 @@
     <h1>Welcome, {{ state.username }}</h1>
   </header>
   <section class="chatbox">
-    //Messages
+    <div 
+        v-for="message in state.messages" 
+        :key="message.key" 
+        :class="(message.username == state.username ? 'message current-user' : 'message')">
+        <div class="message-inner">
+          <div class="username">{{ message.username }}</div>
+          <div class="content">{{ message.content }}</div>
+        </div>
   </section>
   <footer>
     <form @submit.prevent="SendMessage">
