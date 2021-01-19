@@ -1,8 +1,6 @@
 <template>
-<!-- add submit.prevent event in form with e.preventDefault()-->
-<!-- prevent is directive modifier -->
-
-<div class="view login">
+<!-- add v-if and else-->
+<div class="view login" v-if="state.username == '' || state.username == null">
   <form class="login-form" @submit.prevent="Login">
     <div class="form-inner">
       <h1>Login to FireChat</h1>
@@ -18,7 +16,7 @@
   </form>
 </div>
 
-<div class="view chat">
+<div class="view chat" v-else>
   <h1>Chat View</h1>
 </div>
 
@@ -43,7 +41,8 @@ export default {
    }
    return {
      inputUsername,
-     Login
+     Login,
+     state
    }
  }
 }
