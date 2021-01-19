@@ -85,6 +85,9 @@ export default {
                 content: data[key].content
               });
             });
+            state.messages = messages;
+          });
+        });
 
    return {
      inputUsername,
