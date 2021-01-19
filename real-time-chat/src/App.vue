@@ -48,6 +48,7 @@ import db from './db';
 export default {
  setup() {
    const inputUsername = ref("");
+   const inputMessage = ref("");
    const state = reactive({
      username: "",
      messages: []
@@ -71,12 +72,13 @@ export default {
       }
 
       messagesRef.push(message);
-      inputMessage.value =""
+      inputMessage.value ="";
    }
    return {
      inputUsername,
      Login,
      state,
+     inputMessage,
      sendMessage
    }
  }
