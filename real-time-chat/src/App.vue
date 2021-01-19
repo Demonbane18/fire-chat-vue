@@ -30,6 +30,12 @@ import db from './db';
 export default {
  setup() {
    const inputUsername = ref("");
+
+   const Login = () => {
+     if (inputUsername.value != "" || inputUsername.value != null) {
+
+     }
+   }
    return {
      inputUsername
    }
