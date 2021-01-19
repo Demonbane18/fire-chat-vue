@@ -1,8 +1,9 @@
 <template>
-<!-- create reactive state -->
+<!-- add submit.prevent event in form with e.preventDefault()-->
+<!-- prevent is directive modifier -->
 
 <div class="view login">
-  <form class="login-form">
+  <form class="login-form" @submit.prevent="Login">
     <div class="form-inner">
       <h1>Login to FireChat</h1>
       <label for="username">Username</label>
