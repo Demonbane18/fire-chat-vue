@@ -1,6 +1,6 @@
 <template>
-<!-- import reactive, on mounted and ref -->
-<!-- insert v-model -->
+<!-- create reactive state -->
+
 <div class="view login">
   <form class="login-form">
     <div class="form-inner">
@@ -30,14 +30,19 @@ import db from './db';
 export default {
  setup() {
    const inputUsername = ref("");
-
+   const state = reactive({
+     username: "",
+     messages: []
+   })
    const Login = () => {
      if (inputUsername.value != "" || inputUsername.value != null) {
-
+       state.username = inputUsername.value;
+       inputUsername.value="";
      }
    }
    return {
-     inputUsername
+     inputUsername,
+     Login
    }
  }
 }
