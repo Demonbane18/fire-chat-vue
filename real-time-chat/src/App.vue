@@ -1,9 +1,5 @@
 <template>
-  <!-- install firebase -->
-  <!-- add rules no-unused-vars on package.json -->
-  <!-- delete hello world and styles -->
-  <!-- add heading Hello World -->
-  <!-- add setup -->
+<!-- add db.js in src -->
 <h1>Hello World</h1>
 </template>
 
