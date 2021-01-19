@@ -67,6 +67,10 @@ export default {
      }
    }
 
+    const Logout = () => {
+        state.username = "";
+      }
+
     const SendMessage = () => {
       const messagesRef = db.database().ref("messages");
       if (inputMessage.value === "" || inputMessage.value === null) {
