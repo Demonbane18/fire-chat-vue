@@ -73,6 +73,18 @@ export default {
       inputMessage.value = "";
     }
 
+    onMounted(() => {
+          const messagesRef = db.database().ref("messages");
+          messagesRef.on('value', snapshot => {
+            const data = snapshot.val();
+            let messages = [];
+            Object.keys(data).forEach(key => {
+              messages.push({
+                id: key,
+                username: data[key].username,
+                content: data[key].content
+              });
+            });
 
    return {
      inputUsername,
