@@ -3,7 +3,6 @@ import "firebase/database";
 
 const config = {
     //API KEYS
-    //add api keys
     apiKey: "AIzaSyCE_pkSAn5-vsB7YOH2LSuMIGxzA4w93ps",
     authDomain: "firechat-vue-1716a.firebaseapp.com",
     databaseURL: "https://firechat-vue-1716a-default-rtdb.firebaseio.com",
