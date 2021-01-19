@@ -26,7 +26,7 @@
     //Messages
   </section>
   <footer>
-    <form @submit.prevent="sendMessage">
+    <form @submit.prevent="SendMessage">
       <input
         type="text"
         v-model="inputMessage"
@@ -58,28 +58,27 @@ export default {
        state.username = inputUsername.value;
        inputUsername.value="";
      }
+   }
 
-     const sendMessage = () => {
-       const messagesRef = db.database().ref("messages");
-
-       if (inputMessage.value != "" || inputMessage.value != null)
+    const SendMessage = () => {
+      const messagesRef = db.database().ref("messages");
+      if (inputMessage.value === "" || inputMessage.value === null) {
         return;
       }
-
       const message = {
         username: state.username,
         content: inputMessage.value
       }
-
       messagesRef.push(message);
-      inputMessage.value ="";
-   }
+      inputMessage.value = "";
+    }
+
    return {
      inputUsername,
      Login,
      state,
      inputMessage,
-     sendMessage
+     SendMessage
    }
  }
 }
