@@ -1,5 +1,6 @@
 <template>
-<!-- add header on view chat-->
+<!-- add sendMessage method -->
+<!-- add v-model in form submit-->
 <div class="view login" v-if="state.username == '' || state.username == null">
   <form class="login-form" @submit.prevent="Login">
     <div class="form-inner">
@@ -25,9 +26,14 @@
     //Messages
   </section>
   <footer>
-    <form @submit.prevent="">
-      <input type="text" placeholder="Write a message..."/>
-      <input type="submit" value="Send"/>
+    <form @submit.prevent="sendMessage">
+      <input
+        type="text"
+        v-model="inputMessage"
+        placeholder="Write a message..." />
+      <input
+        type="submit"
+        value="Send" />
     </form>
   </footer>
 
@@ -51,11 +57,27 @@ export default {
        state.username = inputUsername.value;
        inputUsername.value="";
      }
+
+     const sendMessage = () => {
+       const messagesRef = db.database().ref("messages");
+
+       if (inputMessage.value != "" || inputMessage.value != null)
+        return;
+      }
+
+      const message = {
+        username: state.username,
+        content: inputMessage.value
+      }
+
+      messagesRef.push(message);
+      inputMessage.value =""
    }
    return {
      inputUsername,
      Login,
-     state
+     state,
+     sendMessage
    }
  }
 }
